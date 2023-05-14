@@ -1,58 +1,58 @@
-import Id from "@/logic/core/comum/Id";
-import { TipoTransacao } from "@/logic/core/financas/TipoTransacao";
-import Transacao from "@/logic/core/financas/Transacao";
+import createUuid from "@/logic/core/shared/Id";
+import { TransactionType } from "@/logic/core/finance/TransactionType";
+import Transaction from "@/logic/core/finance/Transaction";
 
-const transacoesFalsas: Transacao[] = [
+const fakeTransactions: Transaction[] = [
   {
-    id: Id.novo(),
-    descricao: "Salário",
-    data: new Date(2023, 4, 1),
-    valor: 7123.34,
-    tipo: TipoTransacao.RECEITA,
+    id: createUuid(),
+    description: "Salário",
+    date: new Date(2023, 4, 1),
+    value: 7123.34,
+    type: TransactionType.INCOME,
   },
   {
-    id: Id.novo(),
-    descricao: "Conta de Luz",
-    valor: 320.0,
-    data: new Date(2023, 4, 3),
-    tipo: TipoTransacao.DESPESA,
+    id: createUuid(),
+    description: "Conta de Luz",
+    value: 320.0,
+    date: new Date(2023, 4, 3),
+    type: TransactionType.COST,
   },
   {
-    id: Id.novo(),
-    descricao: "Aluguel + Cond.",
-    valor: 1817.59,
-    data: new Date(2023, 4, 3),
-    tipo: TipoTransacao.DESPESA,
+    id: createUuid(),
+    description: "Aluguel + Cond.",
+    value: 1817.59,
+    date: new Date(2023, 4, 3),
+    type: TransactionType.COST,
   },
   {
-    id: Id.novo(),
-    descricao: "Cartão de Crédito",
-    valor: 2200.0,
-    data: new Date(2023, 4, 10),
-    tipo: TipoTransacao.DESPESA,
+    id: createUuid(),
+    description: "Cartão de Crédito",
+    value: 2200.0,
+    date: new Date(2023, 4, 10),
+    type: TransactionType.COST,
   },
   {
-    id: Id.novo(),
-    descricao: "Conta de Água",
-    valor: 174.35,
-    data: new Date(2023, 4, 8),
-    tipo: TipoTransacao.DESPESA,
+    id: createUuid(),
+    description: "Conta de Água",
+    value: 174.35,
+    date: new Date(2023, 4, 8),
+    type: TransactionType.COST,
   },
   {
-    id: Id.novo(),
-    descricao: "Mensalidade MBA",
-    valor: 750.0,
-    data: new Date(2023, 4, 2),
-    tipo: TipoTransacao.DESPESA,
+    id: createUuid(),
+    description: "Mensalidade MBA",
+    value: 750.0,
+    date: new Date(2023, 4, 2),
+    type: TransactionType.COST,
   },
 
   {
-    id: Id.novo(),
-    descricao: "Investimentos",
-    data: new Date(2023, 4, 1),
-    valor: 2123.34,
-    tipo: TipoTransacao.RECEITA,
+    id: createUuid(),
+    description: "Investimentos",
+    date: new Date(2023, 4, 1),
+    value: 2123.34,
+    type: TransactionType.INCOME,
   },
 ];
 
-export default transacoesFalsas;
+export default fakeTransactions;
