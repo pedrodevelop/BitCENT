@@ -1,5 +1,5 @@
-import Area from "../common/Area";
-import Logo from "../common/Logo";
+import Area from "../shared/Area";
+import Logo from "../shared/Logo";
 import Menu from "./Menu";
 
 const Header: React.FC = () => {

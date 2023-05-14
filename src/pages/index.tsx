@@ -1,6 +1,5 @@
-import Landing from "@/components";
-import Page from "@/components/template/Page";
+import Finance from "@/components/finance";
 
 export default function Home() {
-  return <Landing />;
+  return <Finance/>
 }

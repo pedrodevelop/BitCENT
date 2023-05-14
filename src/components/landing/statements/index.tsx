@@ -1,4 +1,4 @@
-import Area from "../common/Area";
+import Area from "../shared/Area";
 import Statement from "./Statement";
 
 const Statements: React.FC = () => {

@@ -28,7 +28,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/logic/core/user/User.ts"  ],
   "exclude": [
     "node_modules"
   ]

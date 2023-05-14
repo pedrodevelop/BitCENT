@@ -1,5 +1,5 @@
 import React from "react";
-import ResponsiveImage from "../common/ResponsiveImage";
+import ResponsiveImage from "../shared/ResponsiveImage";
 
 export interface IAdvantage {
   image: any;
