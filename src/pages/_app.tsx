@@ -5,7 +5,7 @@ import type { AppProps } from 'next/app'
 const App: React.FC<AppProps> =({ Component, pageProps }) => {
   return (
     <MantineProvider theme={{colorScheme: 'dark'}}>
-      <Component {...pageProps} />)
+      <Component {...pageProps} />
     </MantineProvider>
   )
 }
