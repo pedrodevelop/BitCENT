@@ -3,10 +3,10 @@ import Header from "@/components/template/Header";
 import Content from "@/components/template/Content";
 
 export default function UserRegistration() {
-  return ( 
+  return (
     <Page>
-      <Header/>
+      <Header />
       <Content>User</Content>
-      </Page>
-  )
+    </Page>
+  );
 }
