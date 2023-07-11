@@ -3,11 +3,13 @@ import Header from "../template/Header";
 import Page from "../template/Page";
 import Content from "../template/Content";
 import NotFound from "../template/NotFound";
-import Transaction from "@/logic/core/finance/Transaction";
-import Transaction from "@/logic/core/shared/Id";
+import Transaction, { NullTransaction } from "@/logic/core/finance/Transaction";
 import List from "./List";
 import fakeTransactions from "@/data/constants/fakeTransactions";
 import Form from "./Form";
+import { Button } from "@mantine/core";
+import { IconPlus } from "@tabler/icons-react";
+import createUuid from "@/logic/core/shared/Id";
 
 const Finance: React.FC = () => {
   const [transactions, setTransactions] =
@@ -40,7 +42,7 @@ const Finance: React.FC = () => {
         <Button
           className="bg-blue-500"
           leftIcon={<IconPlus />}
-          onClick={() => setTransaction(transacaoVazia)}
+          onClick={() => setTransaction(NullTransaction)}
         >
           Nova transação
         </Button>
