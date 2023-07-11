@@ -1,16 +1,17 @@
 import "dayjs/locale/pt-br";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Transaction from "@/logic/core/finance/Transaction";
 import { TransactionType } from "@/logic/core/finance/TransactionType";
-import FormatMoney from "@/logic/utils/Money";
+import { FormatMoney, DesformatMoney } from "@/logic/utils/Money";
 import { TextInput, Radio, Group, Button } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
+import useForm from "@/data/hooks/useForm";
 
 interface IForm {
   transaction: Transaction;
   cancel?: () => void;
-  saveTransaction?: () => void;
-  deleteTransaction?: () => void;
+  saveTransaction?: (transaction: Transaction) => void;
+  deleteTransaction?: (transaction: Transaction) => void;
 }
 
 const Form: React.FC<IForm> = ({
@@ -19,11 +20,8 @@ const Form: React.FC<IForm> = ({
   saveTransaction,
   deleteTransaction,
 }) => {
-  const [transactionData, setTransactionData] = useState(transaction);
+  const { transactionData, changeAttrValue } = useForm(transaction);
 
-  useEffect(() => {
-    console.log("Mudou", transactionData);
-  }, [transactionData]);
   return (
     <div
       className={`
@@ -36,23 +34,23 @@ const Form: React.FC<IForm> = ({
         <TextInput
           label="Description"
           value={transactionData.description}
-          onChange={(e) => {
-            setTransactionData({
-              ...transaction,
-              description: e.currentTarget.value,
-            });
-          }}
+          onChange={changeAttrValue("description")}
         />
-        <TextInput label="Value" value={FormatMoney(transactionData.value)} />
+        <TextInput
+          label="Value"
+          value={FormatMoney(transactionData.value)}
+          onChange={changeAttrValue("value", DesformatMoney)}
+        />
         <DatePickerInput
           label="Date"
           value={transactionData.date}
           locale="pt-BR"
           valueFormat="DD/MM/YYYY"
+          onChange={changeAttrValue("date")}
         />
         <Radio.Group
           value={transactionData.type}
-          // onChange={alterarAtributo("tipo")}
+          onChange={changeAttrValue("type")}
         >
           <Group>
             <Radio value={TransactionType.INCOME} label="Receita" />
@@ -64,7 +62,7 @@ const Form: React.FC<IForm> = ({
         <Button
           className="bg-green-500"
           color="green"
-          onClick={() => saveTransaction(transactionData)}
+          onClick={() => saveTransaction && saveTransaction(transactionData)}
         >
           Salvar
         </Button>
@@ -76,7 +74,7 @@ const Form: React.FC<IForm> = ({
           <Button
             className="bg-red-500"
             color="red"
-            onClick={() => deleteTransaction(transaction)}
+            onClick={() => deleteTransaction && deleteTransaction(transaction)}
           >
             Excluir
           </Button>

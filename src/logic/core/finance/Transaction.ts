@@ -8,7 +8,7 @@ export default interface Transaction {
   type: TransactionType
 }
 
-export const NullTransaction {
+export const NullTransaction = {
   description: '',
   value: 0,
   date: new Date(),
