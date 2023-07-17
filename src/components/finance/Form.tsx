@@ -1,8 +1,7 @@
 import "dayjs/locale/pt-br";
-import { useEffect } from "react";
 import Transaction from "@/logic/core/finance/Transaction";
 import { TransactionType } from "@/logic/core/finance/TransactionType";
-import { FormatMoney, DesformatMoney } from "@/logic/utils/Money";
+import { FormatMoney, DesformatMoney } from "@/logic/utils";
 import { TextInput, Radio, Group, Button } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import useForm from "@/data/hooks/useForm";
@@ -20,7 +19,7 @@ const Form: React.FC<IForm> = ({
   saveTransaction,
   deleteTransaction,
 }) => {
-  const { transactionData, changeAttrValue } = useForm(transaction);
+  const { data, changeAttrValue } = useForm<Transaction>(transaction);
 
   return (
     <div
@@ -33,25 +32,22 @@ const Form: React.FC<IForm> = ({
       <div className="flex flex-col gap-4 p-4 sm:p-7">
         <TextInput
           label="Description"
-          value={transactionData.description}
+          value={data.description}
           onChange={changeAttrValue("description")}
         />
         <TextInput
           label="Value"
-          value={FormatMoney(transactionData.value)}
+          value={FormatMoney(data.value)}
           onChange={changeAttrValue("value", DesformatMoney)}
         />
         <DatePickerInput
           label="Date"
-          value={transactionData.date}
+          value={data.date}
           locale="pt-BR"
           valueFormat="DD/MM/YYYY"
           onChange={changeAttrValue("date")}
         />
-        <Radio.Group
-          value={transactionData.type}
-          onChange={changeAttrValue("type")}
-        >
+        <Radio.Group value={data.type} onChange={changeAttrValue("type")}>
           <Group>
             <Radio value={TransactionType.INCOME} label="Receita" />
             <Radio value={TransactionType.COST} label="Despesa" />
@@ -62,7 +58,7 @@ const Form: React.FC<IForm> = ({
         <Button
           className="bg-green-500"
           color="green"
-          onClick={() => saveTransaction && saveTransaction(transactionData)}
+          onClick={() => saveTransaction && saveTransaction(data)}
         >
           Salvar
         </Button>
