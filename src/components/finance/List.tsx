@@ -1,6 +1,5 @@
 import Transaction from "@/logic/core/finance/Transaction";
-import FormatDdmmyy from "@/logic/utils/Date";
-import { FormatMoney } from "@/logic/utils/Money";
+import { FormatDdmmyy, FormatMoney } from "@/logic/utils/";
 import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react";
 
 interface IList {
