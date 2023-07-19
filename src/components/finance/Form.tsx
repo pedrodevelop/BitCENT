@@ -6,14 +6,14 @@ import { TextInput, Radio, Group, Button } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import useForm from "@/data/hooks/useForm";
 
-interface IForm {
+interface IFormProps {
   transaction: Transaction;
   cancel?: () => void;
   saveTransaction?: (transaction: Transaction) => void;
   deleteTransaction?: (transaction: Transaction) => void;
 }
 
-const Form: React.FC<IForm> = ({
+const Form: React.FC<IFormProps> = ({
   transaction,
   cancel,
   saveTransaction,

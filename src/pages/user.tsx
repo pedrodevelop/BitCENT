@@ -6,7 +6,7 @@ import fakeUser from "@/data/constants/fakeUser";
 import PageTitle from "@/components/template/PageTitle";
 import Forms from "@/components/user/Forms";
 
-export default function UserRegistration() {
+const UserRegistration: React.FC = () => {
   return (
     <Page>
       <Header />
@@ -20,4 +20,6 @@ export default function UserRegistration() {
       </Content>
     </Page>
   );
-}
+};
+
+export default UserRegistration;

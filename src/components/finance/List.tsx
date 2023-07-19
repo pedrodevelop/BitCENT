@@ -2,12 +2,12 @@ import Transaction from "@/logic/core/finance/Transaction";
 import { FormatDdmmyy, FormatMoney } from "@/logic/utils/";
 import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react";
 
-interface IList {
+interface IListProps {
   transactions: Transaction[];
   selectTransaction?: (transaction: Transaction) => void;
 }
 
-const List: React.FC<IList> = ({ transactions, selectTransaction }) => {
+const List: React.FC<IListProps> = ({ transactions, selectTransaction }) => {
   function renderType(transaction: Transaction) {
     return (
       <span

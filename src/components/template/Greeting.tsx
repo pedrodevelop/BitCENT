@@ -1,11 +1,12 @@
-import fakeUser from "@/data/constants/fakeUser";
+import AuthContext from "@/data/contexts/AuthContext";
+import { useContext } from "react";
 
 const Greeting: React.FC = () => {
-  const usuario = fakeUser;
+  const { user } = useContext(AuthContext);
 
   function renderizarNome() {
     return (
-      <span className="hidden sm:inline">{usuario?.name?.split(" ")[0]}</span>
+      <span className="hidden sm:inline">{user?.name?.split(" ")[0]}</span>
     );
   }
 

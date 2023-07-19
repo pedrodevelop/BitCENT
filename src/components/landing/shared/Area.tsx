@@ -1,10 +1,10 @@
-interface IArea {
+interface IAreaProps {
   children: any;
   className?: string;
   id?: string;
 }
 
-const Area: React.FC<IArea> = ({ children, className, id }) => {
+const Area: React.FC<IAreaProps> = ({ children, className, id }) => {
   return (
     <div
       id={id ?? ""}

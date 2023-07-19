@@ -11,7 +11,7 @@ import {
   isBetween,
 } from "@/logic/utils";
 
-const Forms = () => {
+const Forms: React.FC = () => {
   const { data, changeAttrValue } = useForm<Usuario>(fakeUser);
 
   return (
@@ -52,7 +52,7 @@ const Forms = () => {
         }}
       >
         <TextInput
-          value={FormatCellphone(data.cellphone ?? '')}
+          value={FormatCellphone(data.cellphone ?? "")}
           onChange={changeAttrValue("cellphone", DesformatCellphone)}
         />
       </MiniForm>

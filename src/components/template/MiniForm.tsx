@@ -1,6 +1,6 @@
 import { Button } from "@mantine/core";
 
-interface IMiniForm {
+interface IMiniFormProps {
   title: string;
   description?: string;
   footerMessage?: string;
@@ -9,7 +9,7 @@ interface IMiniForm {
   children: React.ReactNode;
 }
 
-const MiniForm: React.FC<IMiniForm> = ({
+const MiniForm: React.FC<IMiniFormProps> = ({
   title,
   description,
   footerMessage,
