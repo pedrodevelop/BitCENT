@@ -1,13 +1,13 @@
 import React from "react";
 
-interface IPageTitle {
+interface IPageTitleProps {
   main: string;
   icon?: any;
   secondary?: string;
   className?: string;
 }
 
-const PageTitle: React.FC<IPageTitle> = ({
+const PageTitle: React.FC<IPageTitleProps> = ({
   main,
   icon,
   secondary,

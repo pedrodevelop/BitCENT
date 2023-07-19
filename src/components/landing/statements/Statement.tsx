@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-interface IStatement {
+interface IStatementProps {
   avatar: string;
   name: string;
   title: string;
@@ -8,7 +8,7 @@ interface IStatement {
   highlight?: boolean;
 }
 
-const Statement: React.FC<IStatement> = ({
+const Statement: React.FC<IStatementProps> = ({
   avatar,
   name,
   title,

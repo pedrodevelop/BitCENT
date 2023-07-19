@@ -1,11 +1,11 @@
 import Image from "next/image"
 
-interface IResponsiveImage {
+interface IResponsiveImageProps {
     image: any
     className?: string
 }
 
- const ResponsiveImage: React.FC<IResponsiveImage> = ({image,className}) => {
+ const ResponsiveImage: React.FC<IResponsiveImageProps> = ({image,className}) => {
     return (
         <Image
             src={image}

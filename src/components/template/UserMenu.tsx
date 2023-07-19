@@ -1,11 +1,11 @@
 import { Avatar, Menu } from "@mantine/core";
 import { IconArrowsRightLeft, IconLogout, IconUser } from "@tabler/icons-react";
 import Link from "next/link";
-
-import fakeUser from "@/data/constants/fakeUser";
+import { useContext } from "react";
+import AuthContext from "@/data/contexts/AuthContext";
 
 const UserMenu: React.FC = () => {
-  const user = fakeUser;
+  const { user, logout } = useContext(AuthContext);
   return (
     <Menu>
       <Menu.Target>
@@ -34,7 +34,7 @@ const UserMenu: React.FC = () => {
           <Menu.Item icon={<IconUser size={14} />}>Meus Dados</Menu.Item>
         </Link>
         <Menu.Divider />
-        <Menu.Item color="red" icon={<IconLogout size={14} />}>
+        <Menu.Item color="red" icon={<IconLogout size={14} />} onClick={logout}>
           Sair do Sistema
         </Menu.Item>
       </Menu.Dropdown>

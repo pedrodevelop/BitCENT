@@ -1,14 +1,14 @@
 import React from "react";
 import ResponsiveImage from "../shared/ResponsiveImage";
 
-export interface IAdvantage {
+export interface IAdvantageProps {
   image: any;
   title: string;
   subtitle: string;
   inverter?: boolean;
 }
 
-const Advantage: React.FC<IAdvantage> = ({
+const Advantage: React.FC<IAdvantageProps> = ({
   image,
   title,
   subtitle,

@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-interface IMenuItem {
+interface IMenuItemProps {
   children: any;
   url?: string;
   onClick?: () => void;
   className?: string;
 }
 
-const MenuItem: React.FC<IMenuItem> = ({
+const MenuItem: React.FC<IMenuItemProps> = ({
   children,
   url,
   onClick,
