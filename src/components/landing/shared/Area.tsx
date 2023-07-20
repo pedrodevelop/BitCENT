@@ -4,7 +4,7 @@ interface IAreaProps {
   id?: string;
 }
 
-const Area: React.FC<IAreaProps> = ({ children, className, id }) => {
+export const Area: React.FC<IAreaProps> = ({ children, className, id }) => {
   return (
     <div
       id={id ?? ""}
@@ -24,5 +24,3 @@ const Area: React.FC<IAreaProps> = ({ children, className, id }) => {
     </div>
   );
 };
-
-export default Area;

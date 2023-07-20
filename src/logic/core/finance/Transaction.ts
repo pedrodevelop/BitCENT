@@ -1,16 +1,16 @@
-import { TransactionType } from "./TransactionType"
+import { TransactionType } from "./TransactionType";
 
-export default interface Transaction {
-  id?: string
-  description: string
-  value: number
-  date: Date
-  type: TransactionType
+export interface Transaction {
+  id?: string;
+  description: string;
+  value: number;
+  date: Date;
+  type: TransactionType;
 }
 
 export const NullTransaction = {
-  description: '',
+  description: "",
   value: 0,
   date: new Date(),
-  type: TransactionType.COST
-}
+  type: TransactionType.COST,
+};

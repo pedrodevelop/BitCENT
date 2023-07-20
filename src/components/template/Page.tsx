@@ -6,7 +6,7 @@ interface IPageProps {
   className?: string;
 }
 
-const Page: React.FC<IPageProps> = ({ children, className, external }) => {
+export const Page: React.FC<IPageProps> = ({ children, className, external }) => {
   const renderPage = () => {
     return (
       <div
@@ -24,4 +24,3 @@ const Page: React.FC<IPageProps> = ({ children, className, external }) => {
   return external ? renderPage() : <ForceAuth>{renderPage()}</ForceAuth>;
 };
 
-export default Page;

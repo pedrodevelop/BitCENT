@@ -3,7 +3,7 @@ import Footer from "./footer";
 import Header from "./header";
 import Highlighted from "./highlighted";
 import Statements from "./statements";
-import Page from "../template/Page";
+import {Page} from "../template/";
 
 const Landing: React.FC = () => {
   return (

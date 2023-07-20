@@ -1,7 +1,6 @@
-import Area from "../shared/Area";
+import {Area, ResponsiveImage} from "../shared/";
 import Slogan from "./Slogan";
 import principal from "../../../../public/principal.jpg";
-import ResponsiveImage from "../shared/ResponsiveImage";
 
 const Highlighted: React.FC = () => {
   return (

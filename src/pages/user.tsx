@@ -1,9 +1,6 @@
-import Page from "@/components/template/Page";
-import Header from "@/components/template/Header";
-import Content from "@/components/template/Content";
+import {Page, Header, Content, PageTitle} from "@/components/template";
 import { IconForms } from "@tabler/icons-react";
 import fakeUser from "@/data/constants/fakeUser";
-import PageTitle from "@/components/template/PageTitle";
 import Forms from "@/components/user/Forms";
 
 const UserRegistration: React.FC = () => {

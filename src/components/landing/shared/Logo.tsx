@@ -1,4 +1,4 @@
-const Logo: React.FC = () => {
+export const Logo: React.FC = () => {
   return (
     <div className="text-3xl">
       <span className="font-black">Bit</span>
@@ -6,5 +6,3 @@ const Logo: React.FC = () => {
     </div>
   );
 };
-
-export default Logo;

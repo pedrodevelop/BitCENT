@@ -1,5 +1,4 @@
-import Area from "../shared/Area";
-import Logo from "../shared/Logo";
+import {Area, Logo} from "../shared/";
 import SocialMedias from "./SocialMedias";
 
 const Footer: React.FC = () => {

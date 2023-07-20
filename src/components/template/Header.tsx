@@ -1,7 +1,6 @@
-import Greeting from "./Greeting";
-import UserMenu from "./UserMenu";
+import {Greeting, UserMenu} from "./index";
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <div 
       className={`flex justify-between items-center
@@ -12,4 +11,3 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;

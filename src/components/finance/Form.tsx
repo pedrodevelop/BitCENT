@@ -1,5 +1,5 @@
 import "dayjs/locale/pt-br";
-import Transaction from "@/logic/core/finance/Transaction";
+import {Transaction} from "@/logic/core/finance";
 import { TransactionType } from "@/logic/core/finance/TransactionType";
 import { FormatMoney, DesformatMoney } from "@/logic/utils";
 import { TextInput, Radio, Group, Button } from "@mantine/core";

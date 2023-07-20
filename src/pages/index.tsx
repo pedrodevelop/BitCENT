@@ -1,6 +1,6 @@
 import Finance from "@/components/finance";
 import Landing from "@/components/landing";
-import Loading from "@/components/template/Loading";
+import { Loading } from "@/components/template";
 import AuthContext from "@/data/contexts/AuthContext";
 import { useContext } from "react";
 

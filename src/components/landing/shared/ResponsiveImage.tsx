@@ -5,7 +5,7 @@ interface IResponsiveImageProps {
     className?: string
 }
 
- const ResponsiveImage: React.FC<IResponsiveImageProps> = ({image,className}) => {
+ export const ResponsiveImage: React.FC<IResponsiveImageProps> = ({image,className}) => {
     return (
         <Image
             src={image}
@@ -21,5 +21,3 @@ interface IResponsiveImageProps {
         />
     )
 }
-
-export default ResponsiveImage

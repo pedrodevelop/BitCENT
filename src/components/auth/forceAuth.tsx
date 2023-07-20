@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useRouter } from "next/router";
 import AuthContext from "@/data/contexts/AuthContext";
-import Loading from "../template/Loading";
+import {Loading} from "../template/";
 
 interface IForceAuthProps {
   children: any;
