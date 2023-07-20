@@ -4,7 +4,7 @@ interface INotFoundProps {
     children: any
 }
 
-const NotFound: React.FC<INotFoundProps> = ({children}) => {
+export const NotFound: React.FC<INotFoundProps> = ({children}) => {
     return (
         <div className={`
             flex flex-col items-center rounded-lg
@@ -15,5 +15,3 @@ const NotFound: React.FC<INotFoundProps> = ({children}) => {
         </div>
     )
 }
-
-export default NotFound

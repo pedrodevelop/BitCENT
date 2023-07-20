@@ -1,40 +1,20 @@
-import { useState } from "react";
-import Header from "../template/Header";
-import Page from "../template/Page";
-import Content from "../template/Content";
-import NotFound from "../template/NotFound";
-import Transaction, { NullTransaction } from "@/logic/core/finance/Transaction";
+import { useContext, useState } from "react";
+import { Header, Page, Content, NotFound } from "../template";
+import { NullTransaction } from "@/logic/core/finance";
 import List from "./List";
-import fakeTransactions from "@/data/constants/fakeTransactions";
 import Form from "./Form";
 import { Button } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
-import createUuid from "@/logic/core/shared/Id";
+import UseTransaction from "@/data/hooks/useTransaction";
 
 const Finance: React.FC = () => {
-  const [transactions, setTransactions] =
-    useState<Transaction[]>(fakeTransactions);
-  const [transaction, setTransaction] = useState<Transaction | null>(null);
-
-  const handleSaveTransaction = (transaction: Transaction) => {
-    const newTransactions = transactions.filter(
-      (el) => el.id !== transaction.id
-    );
-    setTransactions([
-      ...newTransactions,
-      { ...transaction, id: transaction.id ?? createUuid() },
-    ]);
-    setTransaction(null);
-  };
-
-  const handleDeleteTransaction = (transaction: Transaction) => {
-    const newTransactions = transactions.filter(
-      (el) => el.id !== transaction.id
-    );
-    setTransactions(newTransactions);
-    setTransaction(null);
-  };
-
+  const {
+    transaction,
+    transactions,
+    select,
+    handleDeleteTransaction,
+    handleSaveTransaction,
+  } = UseTransaction();
   return (
     <Page>
       <Header />
@@ -42,22 +22,19 @@ const Finance: React.FC = () => {
         <Button
           className="bg-blue-500"
           leftIcon={<IconPlus />}
-          onClick={() => setTransaction(NullTransaction)}
+          onClick={() => select(NullTransaction)}
         >
           Nova transação
         </Button>
         {transaction ? (
           <Form
             transaction={transaction}
-            cancel={() => setTransaction(null)}
+            cancel={() => select(null)}
             saveTransaction={handleSaveTransaction}
             deleteTransaction={handleDeleteTransaction}
           />
         ) : transactions.length ? (
-          <List
-            transactions={transactions}
-            selectTransaction={setTransaction}
-          />
+          <List transactions={transactions} selectTransaction={select} />
         ) : (
           <NotFound>Nenhuma transação encontrada</NotFound>
         )}

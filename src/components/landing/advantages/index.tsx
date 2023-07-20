@@ -1,4 +1,4 @@
-import Area from "../shared/Area";
+import {Area} from "../shared/";
 import Advantage from "./Advantage";
 import advantage1 from "../../../../public/vantagem-1.jpg";
 import advantage2 from "../../../../public/vantagem-2.jpg";

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import loading from "../../../public/loading.gif";
-import Page from "./Page";
+import {Page} from "./index";
 
-const Loading: React.FC = () => {
+export const Loading: React.FC = () => {
   return (
     <Page external className="justify-center items-center">
       <Image priority src={loading} alt="loading" width={40} height={40} />
@@ -10,4 +10,3 @@ const Loading: React.FC = () => {
   );
 };
 
-export default Loading;

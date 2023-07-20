@@ -3,7 +3,7 @@ interface IContentProps {
   className?: string
 }
 
- const Content: React.FC<IContentProps> = ({children, className}) => {
+ export const Content: React.FC<IContentProps> = ({children, className}) => {
   return (
       <div className={`
           flex flex-col p-7
@@ -13,5 +13,3 @@ interface IContentProps {
       </div>
   )
 }
-
-export default Content

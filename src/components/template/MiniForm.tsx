@@ -9,7 +9,7 @@ interface IMiniFormProps {
   children: React.ReactNode;
 }
 
-const MiniForm: React.FC<IMiniFormProps> = ({
+export const MiniForm: React.FC<IMiniFormProps> = ({
   title,
   description,
   footerMessage,
@@ -48,4 +48,3 @@ const MiniForm: React.FC<IMiniFormProps> = ({
   );
 };
 
-export default MiniForm;

@@ -1,6 +1,6 @@
 import createUuid from "@/logic/core/shared/Id";
 import { TransactionType } from "@/logic/core/finance/TransactionType";
-import Transaction from "@/logic/core/finance/Transaction";
+import {Transaction} from "@/logic/core/finance";
 
 const fakeTransactions: Transaction[] = [
   {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import AuthContext from "@/data/contexts/AuthContext";
 
-const UserMenu: React.FC = () => {
+export const UserMenu: React.FC = () => {
   const { user, logout } = useContext(AuthContext);
   return (
     <Menu>
@@ -41,5 +41,3 @@ const UserMenu: React.FC = () => {
     </Menu>
   );
 };
-
-export default UserMenu;

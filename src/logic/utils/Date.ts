@@ -1,6 +1,7 @@
 /** A function to format date timestamp to a local date string
  * @param dt The date timestamp
  * @param separator The element that will separate days months and years
+ * @returns A date in the format of 00/00/0000
  */
 export const FormatDdmmyy = (dt: Date, separator: string = "/"): string => {
   const day = dt.getDate().toString().padStart(2, "0");
