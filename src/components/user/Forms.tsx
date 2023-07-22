@@ -1,6 +1,5 @@
 import useForm from "@/data/hooks/useForm";
-import MiniForm from "../template/MiniForm";
-import fakeUser from "@/data/constants/fakeUser";
+import { MiniForm } from "../template";
 import Usuario from "@/logic/core/user/User";
 import { TextInput } from "@mantine/core";
 import {
@@ -10,21 +9,33 @@ import {
   DesformatCellphone,
   isBetween,
 } from "@/logic/utils";
+import { useContext, useEffect } from "react";
+import AuthContext from "@/data/contexts/AuthContext";
 
 const Forms: React.FC = () => {
-  const { data, changeAttrValue } = useForm<Usuario>(fakeUser);
+  const { user, updateUser } = useContext(AuthContext);
+  const { data, changeAttrValue, setData } = useForm<Usuario>();
+
+  useEffect(() => {
+    if (!user) return;
+    setData(user);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  const saveUserData = async () => {
+    if (!user) return;
+    await updateUser(data);
+  };
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 mt-7">
       <MiniForm
         title="Seu nome"
         description="Como você gostaria de ser chamado"
         footerMessage="O nome deve possuir entre 3 e 80 caracteres,
         mais que isso já é um texto"
         canSave={isBetween(data.name, 3, 80)}
-        save={() => {
-          alert("Teste");
-        }}
+        save={saveUserData}
       >
         <TextInput value={data.name} onChange={changeAttrValue("name")} />
       </MiniForm>
@@ -33,9 +44,7 @@ const Forms: React.FC = () => {
         description="Seu CPF é usado internamente pelo sistema."
         footerMessage="Pode relaxar, daqui ele não sai!"
         canSave={true}
-        save={() => {
-          alert("Teste");
-        }}
+        save={saveUserData}
       >
         <TextInput
           value={FormatCpf(data.cpf ?? "")}
@@ -47,9 +56,7 @@ const Forms: React.FC = () => {
         description="Usado para notificações importantes sobre a sua conta."
         footerMessage="Se receber ligação a cobrar, não foi a gente!"
         canSave={true}
-        save={() => {
-          alert("Teste");
-        }}
+        save={saveUserData}
       >
         <TextInput
           value={FormatCellphone(data.cellphone ?? "")}

@@ -2,7 +2,6 @@ import {
   querySearch,
   saveFbDoc,
   deleteFbDoc,
-  searchWithFilters,
 } from "@/logic/firebase/db/Collection";
 import { Transaction } from "./index";
 import User from "../user/User";
