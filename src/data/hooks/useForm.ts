@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 /** A hook to centralize form events */
-const useForm = <T = any>(initialData: T) => {
-  const [data, setData] = useState(initialData);
+const useForm = <T = any>(initialData?: T) => {
+  const [data, setData] = useState(initialData ?? {} as T);
 
   const changeAttrValue = (attr: string, fn?: Function) => {
     return (value: any) => {

@@ -6,7 +6,6 @@ import {
   getTransaction,
   deleteTransaction,
 } from "@/logic/core/finance";
-import createUuid from "@/logic/core/shared/Id";
 
 const UseTransaction = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);

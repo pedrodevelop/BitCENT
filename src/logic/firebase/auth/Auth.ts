@@ -12,7 +12,7 @@ import app from "../config/app";
 
 let _auth: Auth = getAuth(app);
 
-type NotifyUser = (user: AppUser | null) => void;
+export type NotifyUser = (user: AppUser | null) => void;
 
 /** Converts a firebase User data to app User data
  * @param firebaseUser User data that comes from firebase
@@ -22,7 +22,7 @@ const convertFirebaseUserToAppUser = (
   firebaseUser: User | null
 ): AppUser | null => {
   if (!firebaseUser?.email) return null;
-  const alternativeName = firebaseUser.email!.split("@")[0];
+  const alternativeName = firebaseUser.email.split("@")[0];
 
   return {
     id: firebaseUser.uid,

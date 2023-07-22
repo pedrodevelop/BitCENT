@@ -1,12 +1,19 @@
-import User from "@/logic/core/user/User";
-import { googleLogin, logout, monitorUser } from "@/logic/firebase/auth/Auth";
 import { createContext, useEffect, useState } from "react";
+import {
+  loginWithGoogle,
+  logoutUser,
+  monitorAuth,
+  saveUser,
+} from "@/logic/core/user/Services";
+import User from "@/logic/core/user/User";
+import { logout } from "@/logic/firebase/auth/Auth";
 
 interface IAuthProps {
   loading: boolean;
   user: User | null;
   googleLogin: () => Promise<User | null>;
   logout: () => Promise<void>;
+  updateUser: (newUser: User) => Promise<void>;
 }
 
 const AuthContext = createContext<IAuthProps>({
@@ -14,6 +21,7 @@ const AuthContext = createContext<IAuthProps>({
   user: null,
   googleLogin: async () => null,
   logout: async () => {},
+  updateUser: async () => {},
 });
 
 export const AuthProvider: React.FC<any> = ({ children }) => {
@@ -21,27 +29,41 @@ export const AuthProvider: React.FC<any> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
   const handleLogin = async () => {
-    const _user = await googleLogin();
+    const _user = await loginWithGoogle();
     setUser(_user);
     return _user;
   };
 
   const handleLogout = async () => {
-    await logout();
+    await logoutUser();
     setUser(null);
   };
 
+  const updateUser = async (newUser: User) => {
+    if (user && user.email !== newUser.email) return logout();
+    if (user && newUser && user.email === newUser.email) {
+      await saveUser(newUser);
+      setUser(newUser);
+    }
+  };
+
   useEffect(() => {
-    const finish = monitorUser(user => {
-      setUser(user)
-      setLoading(false)
-    })
-    return () => finish()
-  }, [])
+    const finish = monitorAuth((user) => {
+      setUser(user);
+      setLoading(false);
+    });
+    return () => finish();
+  }, []);
 
   return (
     <AuthContext.Provider
-      value={{ loading, user, googleLogin: handleLogin, logout: handleLogout }}
+      value={{
+        loading,
+        user,
+        googleLogin: handleLogin,
+        logout: handleLogout,
+        updateUser,
+      }}
     >
       {children}
     </AuthContext.Provider>
