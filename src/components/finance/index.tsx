@@ -6,6 +6,7 @@ import { Button, SegmentedControl } from "@mantine/core";
 import { IconLayoutGrid, IconList, IconPlus } from "@tabler/icons-react";
 import UseTransaction, { ExibitionType } from "@/data/hooks/useTransaction";
 import { Grid } from "./Grid";
+import Summary from "./Summary";
 
 const Finance: React.FC = () => {
   const {
@@ -56,6 +57,7 @@ const Finance: React.FC = () => {
     <Page>
       <Header />
       <Content className="gap-5">
+        <Summary transactions={transactions} />
         {renderControls()}
         {transaction ? (
           <Form
