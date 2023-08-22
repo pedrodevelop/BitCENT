@@ -7,8 +7,11 @@ import {
   getTransactionByMonth,
 } from "@/logic/core/finance";
 
+export type ExibitionType = "list" | "grid";
+
 const UseTransaction = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [exibitionType, setExibitionType] = useState<ExibitionType>('list')
   const [transaction, setTransaction] = useState<Transaction | null>(null);
   const [date, setDate] = useState<Date>(new Date());
   const { user } = useContext(AuthContext);
@@ -42,6 +45,8 @@ const UseTransaction = () => {
     date,
     transactions,
     transaction,
+    exibitionType,
+    changeExibitionType: setExibitionType,
     handleSaveTransaction,
     handleDeleteTransaction,
     select: setTransaction,
